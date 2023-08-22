@@ -19,17 +19,17 @@ class Actions(Enum):
     EXIT = 6
 
 cars=[]
-
+#save function
 def save_to_csv():
     with open("cars.csv", "w") as f:
         writer = csv.writer(f)
         writer.writerows(cars)
       
 
-
+#the display in the terminal
 def display_menu():
     for x in Actions: print(f'{x.value} - {x.name}')
-    return Actions(int(input('Your selection')))
+    return Actions(int(input('Your selection:')))
 
 
 
@@ -39,6 +39,7 @@ def main():
         if user_selection== Actions.PRINT: print(cars)
         if user_selection== Actions.ADD: cars.append({"brand":input("Please enter car brand"), "model":input("Please enter car model"), "color":input("Please enter car color")})
         if user_selection== Actions.EXIT: return 
+        #update, del, and search not implemented yet.
 
 
 
